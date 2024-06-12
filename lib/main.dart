@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'module_page.dart';
-import 'profile_page.dart';
-import 'quiz.dart';
-import 'live_chart_page.dart';
+import 'pages/module_page.dart';
+import 'pages/profile_page.dart';
+import 'pages/quiz.dart';
+import 'pages/live_chart_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -29,7 +29,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
-  static List<Widget> _pages = <Widget>[
+  static final List<Widget> _pages = <Widget>[
     TRHHomePage(),
     QuizPage(),
     LiveChartPage(),
@@ -83,10 +83,11 @@ class TRHHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: Text('TRH Home Page'),
+        title: const Text('TRH Home Page'),
         flexibleSpace: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [Colors.blue, Colors.lightBlueAccent],
               begin: Alignment.topLeft,
@@ -95,16 +96,15 @@ class TRHHomePage extends StatelessWidget {
           ),
         ),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: ListView(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(16.0),
+          const Padding(
+            padding: EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Welcome to TRH',
+                  'Selamat Datang di ternak uang',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -112,47 +112,129 @@ class TRHHomePage extends StatelessWidget {
                 ),
                 SizedBox(height: 8),
                 Text(
-                  'Short description about TRH',
+                  'Aplikasi Saham untuk semuanya',
                   style: TextStyle(fontSize: 16),
                 ),
               ],
             ),
           ),
-          Expanded(
-            child: Padding(
+          Container(
+            height: 300,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  _buildCard(
-                    title: 'Card 1',
-                    description: 'This is a description for Card 1.',
-                    imageUrl: 'https://via.placeholder.com/150',
-                    onPressed: () {
-                      // Handle button press
-                    },
+              children: [
+                _buildCard(
+                  title: 'Card 1',
+                  description: 'This is a description for Card 1.',
+                  imageUrl: 'https://via.placeholder.com/150',
+                  onPressed: () {
+                    // Handle button press
+                  },
+                ),
+                const SizedBox(width: 16),
+                _buildCard(
+                  title: 'Card 2',
+                  description: 'This is a description for Card 2.',
+                  imageUrl: 'https://via.placeholder.com/150',
+                  onPressed: () {
+                    // Handle button press
+                  },
+                ),
+                const SizedBox(width: 16),
+                _buildCard(
+                  title: 'Card 3',
+                  description: 'This is a description for Card 3.',
+                  imageUrl: 'https://via.placeholder.com/150',
+                  onPressed: () {
+                    // Handle button press
+                  },
+                ),
+                const SizedBox(width: 16),
+                _buildCard(
+                  title: 'Card 4',
+                  description: 'This is a description for Card 4.',
+                  imageUrl: 'https://via.placeholder.com/150',
+                  onPressed: () {
+                    // Handle button press
+                  },
+                ),
+                const SizedBox(width: 16),
+                _buildCard(
+                  title: 'Card 5',
+                  description: 'This is a description for Card 5.',
+                  imageUrl: 'https://via.placeholder.com/150',
+                  onPressed: () {
+                    // Handle button press
+                  },
+                ),
+                // Add more cards as needed
+              ],
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Selamat Datang di ternak uang',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
                   ),
-                  SizedBox(width: 16),
-                  _buildCard(
-                    title: 'Card 2',
-                    description: 'This is a description for Card 2.',
-                    imageUrl: 'https://via.placeholder.com/150',
-                    onPressed: () {
-                      // Handle button press
-                    },
-                  ),
-                  SizedBox(width: 16),
-                  _buildCard(
-                    title: 'Card 3',
-                    description: 'This is a description for Card 3.',
-                    imageUrl: 'https://via.placeholder.com/150',
-                    onPressed: () {
-                      // Handle button press
-                    },
-                  ),
-                  // Add more cards as needed
-                ],
-              ),
+                ),
+                SizedBox(height: 8),
+                Text(
+                  'Aplikasi Saham untuk semuanya',
+                  style: TextStyle(fontSize: 16),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            height: 300,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              children: [
+                _buildCard(
+                  title: 'Card 6',
+                  description: 'This is a description for Card 6.',
+                  imageUrl: 'https://via.placeholder.com/150',
+                  onPressed: () {
+                    // Handle button press
+                  },
+                ),
+                const SizedBox(width: 16),
+                _buildCard(
+                  title: 'Card 7',
+                  description: 'This is a description for Card 7.',
+                  imageUrl: 'https://via.placeholder.com/150',
+                  onPressed: () {
+                    // Handle button press
+                  },
+                ),
+                const SizedBox(width: 16),
+                _buildCard(
+                  title: 'Card 8',
+                  description: 'This is a description for Card 8.',
+                  imageUrl: 'https://via.placeholder.com/150',
+                  onPressed: () {
+                    // Handle button press
+                  },
+                ),
+                const SizedBox(width: 16),
+                _buildCard(
+                  title: 'Card 9',
+                  description: 'This is a description for Card 9.',
+                  imageUrl: 'https://via.placeholder.com/150',
+                  onPressed: () {
+                    // Handle button press
+                  },
+                ),
+                // Add more cards as needed
+              ],
             ),
           ),
         ],
@@ -185,28 +267,28 @@ class TRHHomePage extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 title,
-                style: TextStyle(
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
                 ),
               ),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Text(
                 description,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(fontSize: 14),
+                style: const TextStyle(fontSize: 14),
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
                 onPressed: onPressed,
-                child: Text('Submit'),
+                child: const Text('Submit'),
               ),
             ),
           ],
